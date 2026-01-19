@@ -196,11 +196,12 @@
                         subtitle: "I am doing",
                         formula: "Subject + am/is/are + verb-ing",
                         explanation: "Use this for an action happening <b>now</b> (at the time of speaking) or around now. The action is not finished.",
+                        practiceLink: "present_continuous_hub",
                         detailedUses: [
                             { title: "1. Now", desc: "Something is happening at this very moment. (e.g., 'You are learning English now')." },
                             { title: "2. Longer Actions in Progress", desc: "An action in progress this week, month, or year, but not necessarily right this second. (e.g., 'I am studying to become a doctor')." },
                             { title: "3. Near Future", desc: "Indicates that something will or will not happen in the near future. (e.g., 'I am meeting some friends after work')." },
-                            { title: "4. Repetition with 'Always'", desc: "Expresses the idea that something irritating or shocking often happens. (e.g., 'She is always coming to class late')." }
+                            { title: "4. Trends & Changes", desc: "Describing a changing situation. (e.g., 'My English is getting better')." }
                         ],
                         examples: [
                             "Sarah is in her car. She <b>is driving</b> to work.",
@@ -281,6 +282,76 @@
                     ]
                 }
             ],
+            presentContinuousPractice: [
+                {
+                    id: 'now',
+                    title: "Happening Now",
+                    desc: "Actions happening at the time of speaking.",
+                    questions: [
+                        { q: "Please be quiet. I ______ (try) to work.", options: ["try", "am trying", "tried"], correct: 1, feedback: "Correct! Happening right now." },
+                        { q: "Look! It ______ (rain).", options: ["rains", "is raining", "rained"], correct: 1, feedback: "Correct! 'Look!' indicates this moment." },
+                        { q: "Where's Mark? He ______ (have) a shower.", options: ["is having", "has", "have"], correct: 0, feedback: "Correct! He is doing it now." },
+                        { q: "(at a party) Hi, Jane. ______ (you / enjoy) the party?", options: ["Do you enjoy", "Are you enjoying", "You enjoy"], correct: 1, feedback: "Correct! Asking about the current moment." },
+                        { q: "What's that noise? What ______ (happen)?", options: ["is happening", "happens", "happen"], correct: 0, feedback: "Correct! Ongoing action." },
+                        { q: "Listen! The birds ______ (sing).", options: ["sing", "are singing", "is singing"], correct: 1, feedback: "Correct! 'Listen!' is a clue." },
+                        { q: "Don't go out now. It ______ (snow).", options: ["is snowing", "snows", "snowing"], correct: 0, feedback: "Correct! Happening now." },
+                        { q: "I ______ (not / watch) TV right now.", options: ["am not watching", "don't watch", "not watching"], correct: 0, feedback: "Correct! Negative action now." },
+                        { q: "Why ______ (you / wear) that coat? It's hot!", options: ["do you wear", "are you wearing", "wear you"], correct: 1, feedback: "Correct! You are wearing it now." },
+                        { q: "Look at that man! He ______ (run) after the bus.", options: ["runs", "is running", "running"], correct: 1, feedback: "Correct! Visible action." }
+                    ]
+                },
+                {
+                    id: 'temporary',
+                    title: "Temporary Situations",
+                    desc: "Actions in progress around now, but not necessarily this second.",
+                    questions: [
+                        { q: "I ______ (stay) with friends until I find a flat.", options: ["stay", "am staying", "staying"], correct: 1, feedback: "Correct! A temporary situation." },
+                        { q: "My car is broken, so I ______ (walk) to work this week.", options: ["am walking", "walk", "walks"], correct: 0, feedback: "Correct! Temporary routine." },
+                        { q: "She ______ (study) Economics at university.", options: ["studies", "is studying", "studying"], correct: 1, feedback: "Correct! In progress over a period of time." },
+                        { q: "I ______ (read) a really good book at the moment.", options: ["read", "am reading", "reads"], correct: 1, feedback: "Correct! 'At the moment' implies temporary." },
+                        { q: "They ______ (build) a new hotel in the city centre.", options: ["build", "are building", "building"], correct: 1, feedback: "Correct! Ongoing project." },
+                        { q: "My sister ______ (look) for a job.", options: ["looks", "is looking", "look"], correct: 1, feedback: "Correct! Temporary activity." },
+                        { q: "We ______ (decorate) the house this month.", options: ["are decorating", "decorate", "decorates"], correct: 0, feedback: "Correct! Happening this month." },
+                        { q: "He ______ (work) hard on a new project.", options: ["works", "is working", "working"], correct: 1, feedback: "Correct! Specific project duration." },
+                        { q: "I ______ (live) with my parents for now.", options: ["live", "am living", "living"], correct: 1, feedback: "Correct! 'For now' means temporary." },
+                        { q: "She ______ (write) a book about her travels.", options: ["writes", "is writing", "wrote"], correct: 1, feedback: "Correct! In the middle of doing it." }
+                    ]
+                },
+                {
+                    id: 'future',
+                    title: "Future Arrangements",
+                    desc: "Plans you have already arranged for the future.",
+                    questions: [
+                        { q: "I ______ (meet) Sarah for lunch tomorrow.", options: ["am meeting", "meet", "meeting"], correct: 0, feedback: "Correct! Arranged plan." },
+                        { q: "What ______ (you / do) on Saturday night?", options: ["do you do", "are you doing", "you doing"], correct: 1, feedback: "Correct! Asking about plans." },
+                        { q: "We ______ (go) to the cinema tonight.", options: ["go", "are going", "goes"], correct: 1, feedback: "Correct! Definite plan." },
+                        { q: "He ______ (play) tennis on Friday.", options: ["plays", "is playing", "play"], correct: 1, feedback: "Correct! Arranged activity." },
+                        { q: "They ______ (fly) to Paris next week.", options: ["fly", "are flying", "flying"], correct: 1, feedback: "Correct! Booked travel." },
+                        { q: "I ______ (not / work) tomorrow.", options: ["am not working", "don't work", "not work"], correct: 0, feedback: "Correct! Plan not to work." },
+                        { q: "______ (you / come) to the party?", options: ["Do you come", "Are you coming", "Coming you"], correct: 1, feedback: "Correct! Asking about attendance." },
+                        { q: "She ______ (see) the dentist at 10 AM.", options: ["sees", "is seeing", "see"], correct: 1, feedback: "Correct! Appointment." },
+                        { q: "We ______ (have) a barbecue this weekend.", options: ["have", "are having", "having"], correct: 1, feedback: "Correct! Planned event." },
+                        { q: "My parents ______ (visit) us next month.", options: ["visit", "are visiting", "visits"], correct: 1, feedback: "Correct! Arranged visit." }
+                    ]
+                },
+                {
+                    id: 'changes',
+                    title: "Trends & Changes",
+                    desc: "Situations that are changing or developing.",
+                    questions: [
+                        { q: "My English ______ (get) better.", options: ["is getting", "gets", "getting"], correct: 0, feedback: "Correct! Changing state." },
+                        { q: "The population of the world ______ (increase).", options: ["increases", "is increasing", "increase"], correct: 1, feedback: "Correct! Trend." },
+                        { q: "It ______ (become) harder to find a job.", options: ["becomes", "is becoming", "become"], correct: 1, feedback: "Correct! Developing situation." },
+                        { q: "The cost of living ______ (rise).", options: ["rises", "is rising", "rising"], correct: 1, feedback: "Correct! Upward trend." },
+                        { q: "The weather ______ (start) to improve.", options: ["starts", "is starting", "starting"], correct: 1, feedback: "Correct! Change in progress." },
+                        { q: "My muscles ______ (develop) from all this work!", options: ["develop", "are developing", "develops"], correct: 1, feedback: "Correct! Physical change (from PDF)." },
+                        { q: "Technology ______ (change) very fast.", options: ["changes", "is changing", "change"], correct: 1, feedback: "Correct! Rapid change." },
+                        { q: "People ______ (live) longer these days.", options: ["live", "are living", "lives"], correct: 1, feedback: "Correct! Changing demographic." },
+                        { q: "The days ______ (get) shorter in winter.", options: ["get", "are getting", "getting"], correct: 1, feedback: "Correct! Seasonal change." },
+                        { q: "Your French ______ (improve) quickly.", options: ["improves", "is improving", "improve"], correct: 1, feedback: "Correct! Improvement in progress." }
+                    ]
+                }
+            ],
             past: {
                 title: "Past Tenses",
                 intro: "Distinguishing between finished actions and actions in progress in the past.",
@@ -290,6 +361,7 @@
                         subtitle: "I did",
                         formula: "Subject + verb-ed (or irregular)",
                         explanation: "Use this for finished actions in the past. We often say <i>when</i> it happened.",
+                        practiceLink: "past_simple_hub",
                         detailedUses: [
                             { title: "1. Completed Action in the Past", desc: "An action started and finished at a specific time in the past. (e.g., 'I saw a movie yesterday')." },
                             { title: "2. A Series of Completed Actions", desc: "A list of completed actions that happened 1st, 2nd, 3rd, etc. (e.g., 'I finished work, walked to the beach, and found a nice place to swim')." },
@@ -308,6 +380,7 @@
                         subtitle: "I was doing",
                         formula: "Subject + was/were + verb-ing",
                         explanation: "Use this when you were in the middle of doing something at a certain time in the past.",
+                        practiceLink: "past_continuous_hub",
                         detailedUses: [
                             { title: "1. Interrupted Action in the Past", desc: "A longer action in the past was interrupted by a shorter action. (e.g., 'I was watching TV when she called')." },
                             { title: "2. Specific Time as an Interruption", desc: "Last night at 6 PM, I was eating dinner. (I started earlier and was in the process of eating at 6 PM)." },
@@ -324,6 +397,146 @@
                     }
                 ]
             },
+            pastSimplePractice: [
+                {
+                    id: 'completed',
+                    title: "Completed Actions",
+                    desc: "Actions that started and finished at a specific time in the past.",
+                    questions: [
+                        { q: "I ______ (see) a movie yesterday.", options: ["see", "saw", "seen"], correct: 1, feedback: "Correct! Irregular past of 'see'." },
+                        { q: "Last year, I ______ (travel) to Japan.", options: ["traveled", "travel", "travelling"], correct: 0, feedback: "Correct! Specific time in the past." },
+                        { q: "Did you ______ (have) dinner last night?", options: ["had", "have", "has"], correct: 1, feedback: "Correct! 'Did' takes the base form." },
+                        { q: "She ______ (wash) her car on Sunday.", options: ["wash", "washed", "washes"], correct: 1, feedback: "Correct! Completed action." },
+                        { q: "He ______ (not / wash) his car.", options: ["didn't wash", "not washed", "didn't washed"], correct: 0, feedback: "Correct! Negative past simple." },
+                        { q: "We ______ (go) to the park last weekend.", options: ["go", "went", "gone"], correct: 1, feedback: "Correct! Irregular past of 'go'." },
+                        { q: "I ______ (buy) a new phone yesterday.", options: ["buyed", "bought", "buying"], correct: 1, feedback: "Correct! Irregular past of 'buy'." },
+                        { q: "They ______ (leave) the party early.", options: ["left", "leaved", "leave"], correct: 0, feedback: "Correct! Irregular past of 'leave'." },
+                        { q: "______ (you / sleep) well last night?", options: ["Did you sleep", "Do you sleep", "Slept you"], correct: 0, feedback: "Correct! Past simple question." },
+                        { q: "Tom ______ (not / come) to the office yesterday.", options: ["didn't came", "didn't come", "not come"], correct: 1, feedback: "Correct! 'Did not' + base verb." }
+                    ]
+                },
+                {
+                    id: 'series',
+                    title: "Series of Actions",
+                    desc: "A list of completed actions happening one after another.",
+                    questions: [
+                        { q: "I finished work, ______ (walk) to the beach, and found a nice place to swim.", options: ["walk", "walked", "walking"], correct: 1, feedback: "Correct! Part of a sequence." },
+                        { q: "He arrived at 8:00, ______ (check) into the hotel, and met the others.", options: ["checked", "check", "checking"], correct: 0, feedback: "Correct! Sequential past action." },
+                        { q: "Did you add flour, ______ (pour) in the milk, and then add eggs?", options: ["poured", "pour", "pouring"], correct: 1, feedback: "Correct! 'Did' applies to the list." },
+                        { q: "She opened the box and ______ (look) inside.", options: ["looked", "look", "looking"], correct: 0, feedback: "Correct! Next action in story." },
+                        { q: "He woke up, washed his face, and ______ (brush) his teeth.", options: ["brushed", "brush", "brushes"], correct: 0, feedback: "Correct! List of past events." },
+                        { q: "I sat down, took a book, and ______ (start) to read.", options: ["start", "started", "starting"], correct: 1, feedback: "Correct! Sequential action." },
+                        { q: "The thief broke in, ______ (steal) the TV, and ran away.", options: ["stole", "stealed", "stolen"], correct: 0, feedback: "Correct! Irregular past of 'steal'." },
+                        { q: "She put on her coat, ______ (grab) her bag, and left.", options: ["grabbed", "grab", "grabbing"], correct: 0, feedback: "Correct! Sequence of events." },
+                        { q: "We bought tickets, ______ (enter) the cinema, and sat down.", options: ["entered", "enter", "entering"], correct: 0, feedback: "Correct! Narrative sequence." },
+                        { q: "He paid the bill, ______ (stand) up, and walked out.", options: ["stood", "standed", "stand"], correct: 0, feedback: "Correct! Irregular past of 'stand'." }
+                    ]
+                },
+                {
+                    id: 'duration',
+                    title: "Duration in Past",
+                    desc: "Actions that lasted for a time in the past but are now finished.",
+                    questions: [
+                        { q: "I ______ (live) in Brazil for two years.", options: ["lived", "live", "living"], correct: 0, feedback: "Correct! Finished duration." },
+                        { q: "Shauna ______ (study) Japanese for five years.", options: ["studied", "studies", "studying"], correct: 0, feedback: "Correct! Past duration." },
+                        { q: "They ______ (sit) at the beach all day.", options: ["sat", "sit", "sitted"], correct: 0, feedback: "Correct! Irregular past of 'sit'." },
+                        { q: "We ______ (talk) on the phone for thirty minutes.", options: ["talked", "talk", "talking"], correct: 0, feedback: "Correct! Specific duration in past." },
+                        { q: "How long ______ (you / wait) for them?", options: ["did you wait", "do you wait", "waited you"], correct: 0, feedback: "Correct! Question about duration." },
+                        { q: "I ______ (work) there for 10 years before I quit.", options: ["worked", "work", "working"], correct: 0, feedback: "Correct! Finished period." },
+                        { q: "She ______ (be) sick for a week.", options: ["was", "is", "were"], correct: 0, feedback: "Correct! Past state duration." },
+                        { q: "We ______ (stay) at the party for only an hour.", options: ["stayed", "stay", "staying"], correct: 0, feedback: "Correct! Short duration in past." },
+                        { q: "He ______ (play) football for the school team for 3 years.", options: ["played", "play", "playing"], correct: 0, feedback: "Correct! Past habit/duration." },
+                        { q: "They ______ (queue) for tickets for 4 hours!", options: ["queued", "queue", "queuing"], correct: 0, feedback: "Correct! Long duration in past." }
+                    ]
+                },
+                {
+                    id: 'habits',
+                    title: "Habits in the Past",
+                    desc: "Things you used to do but don't do anymore.",
+                    questions: [
+                        { q: "I ______ (study) French when I was a child.", options: ["studied", "study", "studying"], correct: 0, feedback: "Correct! Past habit." },
+                        { q: "He ______ (play) the violin when he was younger.", options: ["played", "plays", "playing"], correct: 0, feedback: "Correct! Past skill/habit." },
+                        { q: "She ______ (work) at the cinema after school.", options: ["worked", "works", "working"], correct: 0, feedback: "Correct! Regular past action." },
+                        { q: "They never ______ (go) to school; they always skipped.", options: ["went", "go", "gone"], correct: 0, feedback: "Correct! Past routine." },
+                        { q: "Did you ______ (play) an instrument when you were a kid?", options: ["play", "played", "playing"], correct: 0, feedback: "Correct! Question about past habit." },
+                        { q: "My grandpa always ______ (wear) a hat.", options: ["wore", "worn", "wear"], correct: 0, feedback: "Correct! Past characteristic." },
+                        { q: "We often ______ (go) camping in summer.", options: ["went", "go", "going"], correct: 0, feedback: "Correct! Recurring past event." },
+                        { q: "I ______ (not / like) vegetables as a child.", options: ["didn't like", "don't like", "not liked"], correct: 0, feedback: "Correct! Past state/habit." },
+                        { q: "People ______ (pay) much more for calls in the past.", options: ["paid", "payed", "pay"], correct: 0, feedback: "Correct! General past truth." },
+                        { q: "She ______ (be) very shy, but now she's outgoing.", options: ["was", "is", "were"], correct: 0, feedback: "Correct! Past state." }
+                    ]
+                }
+            ],
+            pastContinuousPractice: [
+                {
+                    id: 'interrupted',
+                    title: "Interrupted Actions",
+                    desc: "Long action in progress interrupted by a short action.",
+                    questions: [
+                        { q: "I ______ (watch) TV when she called.", options: ["was watching", "watched", "watching"], correct: 0, feedback: "Correct! Interrupted action." },
+                        { q: "When the phone rang, she ______ (write) a letter.", options: ["was writing", "wrote", "writes"], correct: 0, feedback: "Correct! Action in progress." },
+                        { q: "While we ______ (have) the picnic, it started to rain.", options: ["were having", "had", "having"], correct: 0, feedback: "Correct! Background action." },
+                        { q: "What ______ (you / do) when the earthquake started?", options: ["were you doing", "did you do", "do you do"], correct: 0, feedback: "Correct! Action in progress." },
+                        { q: "I ______ (listen) to music, so I didn't hear the bell.", options: ["was listening", "listened", "listen"], correct: 0, feedback: "Correct! Reason for not hearing." },
+                        { q: "You ______ (not / listen) to me when I told you.", options: ["were not listening", "didn't listen", "not listening"], correct: 0, feedback: "Correct! Negative continuous." },
+                        { q: "Sammy ______ (wait) for us when we got off the plane.", options: ["was waiting", "waited", "wait"], correct: 0, feedback: "Correct! Already happening." },
+                        { q: "While I ______ (write) the email, the computer crashed.", options: ["was writing", "wrote", "write"], correct: 0, feedback: "Correct! Interrupted process." },
+                        { q: "I ______ (snowboard) when I broke my leg.", options: ["was snowboarding", "snowboarded", "snowboard"], correct: 0, feedback: "Correct! Context of accident." },
+                        { q: "He ______ (drive) too fast when the police stopped him.", options: ["was driving", "drove", "drives"], correct: 0, feedback: "Correct! Action in progress." }
+                    ]
+                },
+                {
+                    id: 'time',
+                    title: "Specific Time",
+                    desc: "Action in progress at a precise moment in the past.",
+                    questions: [
+                        { q: "Last night at 6 PM, I ______ (eat) dinner.", options: ["was eating", "ate", "eaten"], correct: 0, feedback: "Correct! In progress at that exact time." },
+                        { q: "At midnight, we ______ (still / drive) through the desert.", options: ["were still driving", "still drove", "drive"], correct: 0, feedback: "Correct! Happening precisely then." },
+                        { q: "Yesterday at this time, I ______ (sit) at my desk.", options: ["was sitting", "sat", "sit"], correct: 0, feedback: "Correct! In progress at this time yesterday." },
+                        { q: "What ______ (you / do) at 8 o'clock last night?", options: ["were you doing", "did you do", "do you do"], correct: 0, feedback: "Correct! Specific time inquiry." },
+                        { q: "This time last year, I ______ (live) in Tokyo.", options: ["was living", "lived", "live"], correct: 0, feedback: "Correct! In progress then." },
+                        { q: "At 10 AM yesterday, she ______ (work) in the garden.", options: ["was working", "worked", "works"], correct: 0, feedback: "Correct! Ongoing at 10 AM." },
+                        { q: "We ______ (sleep) when the alarm went off at 6 AM.", options: ["were sleeping", "slept", "sleep"], correct: 0, feedback: "Correct! State at that time." },
+                        { q: "It ______ (rain) heavily at lunchtime.", options: ["was raining", "rained", "rains"], correct: 0, feedback: "Correct! Weather at a specific time." },
+                        { q: "They ______ (have) breakfast at 7:30 this morning.", options: ["were having", "had", "have"], correct: 0, feedback: "Correct! Meal in progress." },
+                        { q: "I ______ (not / work) at 5 PM; I was already home.", options: ["wasn't working", "didn't work", "not working"], correct: 0, feedback: "Correct! Negative state at specific time." }
+                    ]
+                },
+                {
+                    id: 'parallel',
+                    title: "Parallel Actions",
+                    desc: "Two or more actions happening at the same time.",
+                    questions: [
+                        { q: "I ______ (study) while he was making dinner.", options: ["was studying", "studied", "study"], correct: 0, feedback: "Correct! Simultaneous action." },
+                        { q: "While Ellen was reading, Tim ______ (watch) TV.", options: ["was watching", "watched", "watches"], correct: 0, feedback: "Correct! Happening together." },
+                        { q: "______ (you / listen) while he was talking?", options: ["Were you listening", "Did you listen", "Listen you"], correct: 0, feedback: "Correct! Simultaneous actions." },
+                        { q: "Thomas wasn't working, and I ______ (not / work) either.", options: ["wasn't working", "didn't work", "not working"], correct: 0, feedback: "Correct! Parallel negative states." },
+                        { q: "They ______ (eat) dinner and discussing plans.", options: ["were eating", "ate", "eat"], correct: 0, feedback: "Correct! Multiple ongoing actions." },
+                        { q: "While I was cooking, my sister ______ (do) her homework.", options: ["was doing", "did", "does"], correct: 0, feedback: "Correct! Parallel activity." },
+                        { q: "He ______ (read) the paper while his wife was driving.", options: ["was reading", "read", "reads"], correct: 0, feedback: "Correct! Happening at the same time." },
+                        { q: "The kids ______ (play) while the parents were chatting.", options: ["were playing", "played", "play"], correct: 0, feedback: "Correct! Background scene." },
+                        { q: "I ______ (try) to sleep while the neighbours were partying.", options: ["was trying", "tried", "try"], correct: 0, feedback: "Correct! Parallel struggle." },
+                        { q: "She ______ (laugh) while he was telling the joke.", options: ["was laughing", "laughed", "laughs"], correct: 0, feedback: "Correct! Simultaneous reaction." }
+                    ]
+                },
+                {
+                    id: 'atmosphere',
+                    title: "Atmosphere & Repetition",
+                    desc: "Setting the scene or describing irritating habits with 'always'.",
+                    questions: [
+                        { q: "When I walked in, everyone ______ (talk).", options: ["was talking", "talked", "talk"], correct: 0, feedback: "Correct! Setting the scene." },
+                        { q: "The birds ______ (sing) and the sun was shining.", options: ["were singing", "sang", "sing"], correct: 0, feedback: "Correct! Atmosphere description." },
+                        { q: "She ______ (always / come) to class late!", options: ["was always coming", "always came", "comes always"], correct: 0, feedback: "Correct! Irritating past habit." },
+                        { q: "He ______ (constantly / talk). He annoyed everyone.", options: ["was constantly talking", "constantly talked", "talks constantly"], correct: 0, feedback: "Correct! Annoying habit." },
+                        { q: "I didn't like them because they ______ (always / complain).", options: ["were always complaining", "always complained", "complain always"], correct: 0, feedback: "Correct! Negative repetition." },
+                        { q: "Customers ______ (wait) to be helped.", options: ["were waiting", "waited", "wait"], correct: 0, feedback: "Correct! Scene description." },
+                        { q: "Phones ______ (ring) and people were shouting.", options: ["were ringing", "rang", "ring"], correct: 0, feedback: "Correct! Busy atmosphere." },
+                        { q: "My old car ______ (always / break) down.", options: ["was always breaking", "always broke", "breaks always"], correct: 0, feedback: "Correct! Annoying frequency." },
+                        { q: "The wind ______ (blow) heavily outside.", options: ["was blowing", "blew", "blows"], correct: 0, feedback: "Correct! Atmospheric background." },
+                        { q: "He ______ (forever / ask) for money.", options: ["was forever asking", "forever asked", "asks forever"], correct: 0, feedback: "Correct! Hyperbolic habit." }
+                    ]
+                }
+            ],
             perfect: {
                 title: "Present Perfect Tenses",
                 intro: "Linking the past with the present. Covering both Simple and Continuous forms.",
@@ -333,6 +546,7 @@
                         subtitle: "I have done",
                         formula: "Subject + have/has + past participle (v3)",
                         explanation: "The action is in the past, but the result is in the present. It describes an action at an <b>unspecified time</b> before now.",
+                        practiceLink: "present_perfect_hub", // Connects to the new hub
                         detailedUses: [
                             { title: "1. Result in the Present", desc: "Something happened in the past and has a result now. (e.g., 'I've lost my keys' = I don't have them now)." },
                             { title: "2. Life Experience", desc: "Talking about your life up to now. The exact time is not important. (e.g., 'I have been to France' or 'I have never seen that movie')." },
@@ -354,6 +568,7 @@
                         subtitle: "I have been doing",
                         formula: "Subject + have/has + been + verb-ing",
                         explanation: "Use this for an activity that started in the past and has continued up to now, often emphasizing duration or recent activity.",
+                        practiceLink: "present_perfect_hub", // Connects to the same hub
                         detailedUses: [
                             { title: "1. Duration from Past Until Now", desc: "Something started in the past and continues to now. Used with 'for' or 'since'. (e.g., 'They have been talking for the last hour')." },
                             { title: "2. Recently / Lately", desc: "Used without a specific duration to mean 'lately'. Emphasizes recent behavior. (e.g., 'Recently, I have been feeling really tired')." },
@@ -371,6 +586,42 @@
                     }
                 ]
             },
+            presentPerfectPractice: [
+                {
+                    id: 'simple',
+                    title: "Present Perfect Simple",
+                    desc: "Experiences, results in the present, and recent news.",
+                    questions: [
+                        { q: "I ______ (lose) my key. I can't find it anywhere.", options: ["lost", "have lost", "lose"], correct: 1, feedback: "Correct! Result in the present." },
+                        { q: "______ (you / ever / be) to Australia?", options: ["Did you ever go", "Have you ever been", "Were you ever"], correct: 1, feedback: "Correct! Asking about life experience." },
+                        { q: "She ______ (not / finish) her homework yet.", options: ["hasn't finished", "didn't finish", "not finished"], correct: 0, feedback: "Correct! 'Yet' suggests uncompleted expectation." },
+                        { q: "Look! Someone ______ (break) that window.", options: ["broke", "has broken", "breaks"], correct: 1, feedback: "Correct! New information/Result." },
+                        { q: "I ______ (know) him for a long time.", options: ["know", "have known", "am knowing"], correct: 1, feedback: "Correct! Duration with non-continuous verb." },
+                        { q: "We ______ (already / see) that movie.", options: ["already saw", "have already seen", "had already seen"], correct: 1, feedback: "Correct! Unspecified time before now." },
+                        { q: "Where is Jim? He ______ (go) to the shops.", options: ["has gone", "went", "goes"], correct: 0, feedback: "Correct! He is not here now." },
+                        { q: "I ______ (never / eat) sushi.", options: ["never ate", "have never eaten", "never eat"], correct: 1, feedback: "Correct! Life experience." },
+                        { q: "______ (you / hear) from George recently?", options: ["Did you hear", "Have you heard", "Do you hear"], correct: 1, feedback: "Correct! News/Recent event." },
+                        { q: "They ______ (live) in this house since 2010.", options: ["lived", "have lived", "live"], correct: 1, feedback: "Correct! Started in past, continues now (state)." }
+                    ]
+                },
+                {
+                    id: 'continuous',
+                    title: "Present Perfect Continuous",
+                    desc: "Duration of activity, recent actions, and visible evidence.",
+                    questions: [
+                        { q: "It ______ (rain) for two hours.", options: ["is raining", "has been raining", "rains"], correct: 1, feedback: "Correct! Emphasizes duration." },
+                        { q: "You look tired. ______ (you / work) hard?", options: ["Have you been working", "Do you work", "Are you working"], correct: 0, feedback: "Correct! Evidence (tiredness) from recent activity." },
+                        { q: "She ______ (learn) English for six months.", options: ["has been learning", "is learning", "learns"], correct: 0, feedback: "Correct! Duration of an ongoing activity." },
+                        { q: "I ______ (wait) here since 9 o'clock!", options: ["am waiting", "wait", "have been waiting"], correct: 2, feedback: "Correct! Emphasis on length of time." },
+                        { q: "Sorry I'm late. ______ (you / wait) long?", options: ["Do you wait", "Are you waiting", "Have you been waiting"], correct: 2, feedback: "Correct! Activity continuing up to now." },
+                        { q: "My hands are dirty. I ______ (repair) my bike.", options: ["have been repairing", "repaired", "am repairing"], correct: 0, feedback: "Correct! Evidence of recent activity." },
+                        { q: "How long ______ (you / play) tennis?", options: ["do you play", "have you been playing", "are you playing"], correct: 1, feedback: "Correct! Question about duration." },
+                        { q: "He ______ (watch) TV all day.", options: ["is watching", "has been watching", "watches"], correct: 1, feedback: "Correct! 'All day' emphasizes continuous duration." },
+                        { q: "The kitchen is a mess. They ______ (cook).", options: ["have been cooking", "cooked", "cook"], correct: 0, feedback: "Correct! Recent activity with visible result." },
+                        { q: "I ______ (think) about what you said lately.", options: ["have been thinking", "think", "am thinking"], correct: 0, feedback: "Correct! Mental activity over a recent period." }
+                    ]
+                }
+            ],
             pastPerfect: {
                 title: "Past Perfect Tenses",
                 intro: "Going back to a time before the past. Covering Simple and Continuous forms.",
@@ -502,8 +753,12 @@
                     case 'home': this.renderHome(); break;
                     case 'present': this.renderGrammar('present'); break;
                     case 'present_simple_hub': this.renderPresentSimpleHub(); break;
+                    case 'present_continuous_hub': this.renderPresentContinuousHub(); break;
                     case 'past': this.renderGrammar('past'); break;
+                    case 'past_simple_hub': this.renderPastSimpleHub(); break;
+                    case 'past_continuous_hub': this.renderPastContinuousHub(); break;
                     case 'perfect': this.renderGrammar('perfect'); break;
+                    case 'present_perfect_hub': this.renderPresentPerfectHub(); break;
                     case 'pastPerfect': this.renderGrammar('pastPerfect'); break;
                     case 'compare': this.renderCompare(); break;
                     case 'practice': this.startGeneralQuiz(); break;
@@ -515,8 +770,8 @@
                 this.renderPractice();
             },
             
-            startSpecificQuiz(categoryIndex) {
-                 this.currentQuizData = contentData.presentSimplePractice[categoryIndex].questions;
+            startSpecificQuiz(categoryIndex, dataKey) {
+                 this.currentQuizData = contentData[dataKey][categoryIndex].questions;
                  this.renderPractice();
             },
 
@@ -573,7 +828,7 @@
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             ${contentData.presentSimplePractice.map((cat, idx) => `
-                                <div onclick="app.startSpecificQuiz(${idx})" class="glass-card cursor-pointer p-8 rounded-2xl border-l-8 border-indigo-500 hover:bg-white/90 transition-all">
+                                <div onclick="app.startSpecificQuiz(${idx}, 'presentSimplePractice')" class="glass-card cursor-pointer p-8 rounded-2xl border-l-8 border-indigo-500 hover:bg-white/90 transition-all">
                                     <h3 class="text-2xl font-bold text-slate-800 mb-2">${cat.title}</h3>
                                     <p class="text-slate-600 mb-4">${cat.desc}</p>
                                     <div class="flex items-center text-indigo-600 font-bold text-sm">
@@ -589,6 +844,122 @@
                     </div>
                  `;
                  this.container.innerHTML = html;
+            },
+
+            renderPresentContinuousHub() {
+                 let html = `
+                    <div class="fade-in max-w-6xl mx-auto">
+                        <div class="text-center mb-10">
+                            <h1 class="text-4xl font-bold text-white mb-3">Present Continuous Practice</h1>
+                            <p class="text-lg text-blue-100">Select a specific use to practice.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${contentData.presentContinuousPractice.map((cat, idx) => `
+                                <div onclick="app.startSpecificQuiz(${idx}, 'presentContinuousPractice')" class="glass-card cursor-pointer p-8 rounded-2xl border-l-8 border-blue-500 hover:bg-white/90 transition-all">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">${cat.title}</h3>
+                                    <p class="text-slate-600 mb-4">${cat.desc}</p>
+                                    <div class="flex items-center text-blue-600 font-bold text-sm">
+                                        Start Quiz (${cat.questions.length} Questions) <i class="ph-bold ph-arrow-right ml-2"></i>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="mt-8 text-center">
+                             <button onclick="app.navigate('present')" class="text-white hover:text-indigo-200 underline">Back to Present Tenses</button>
+                        </div>
+                    </div>
+                 `;
+                 this.container.innerHTML = html;
+            },
+
+            renderPastSimpleHub() {
+                 let html = `
+                    <div class="fade-in max-w-6xl mx-auto">
+                        <div class="text-center mb-10">
+                            <h1 class="text-4xl font-bold text-white mb-3">Past Simple Practice</h1>
+                            <p class="text-lg text-blue-100">Select a specific use to practice.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${contentData.pastSimplePractice.map((cat, idx) => `
+                                <div onclick="app.startSpecificQuiz(${idx}, 'pastSimplePractice')" class="glass-card cursor-pointer p-8 rounded-2xl border-l-8 border-pink-500 hover:bg-white/90 transition-all">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">${cat.title}</h3>
+                                    <p class="text-slate-600 mb-4">${cat.desc}</p>
+                                    <div class="flex items-center text-pink-600 font-bold text-sm">
+                                        Start Quiz (${cat.questions.length} Questions) <i class="ph-bold ph-arrow-right ml-2"></i>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="mt-8 text-center">
+                             <button onclick="app.navigate('past')" class="text-white hover:text-pink-200 underline">Back to Past Tenses</button>
+                        </div>
+                    </div>
+                 `;
+                 this.container.innerHTML = html;
+            },
+
+            renderPastContinuousHub() {
+                 let html = `
+                    <div class="fade-in max-w-6xl mx-auto">
+                        <div class="text-center mb-10">
+                            <h1 class="text-4xl font-bold text-white mb-3">Past Continuous Practice</h1>
+                            <p class="text-lg text-blue-100">Select a specific use to practice.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${contentData.pastContinuousPractice.map((cat, idx) => `
+                                <div onclick="app.startSpecificQuiz(${idx}, 'pastContinuousPractice')" class="glass-card cursor-pointer p-8 rounded-2xl border-l-8 border-rose-500 hover:bg-white/90 transition-all">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">${cat.title}</h3>
+                                    <p class="text-slate-600 mb-4">${cat.desc}</p>
+                                    <div class="flex items-center text-rose-600 font-bold text-sm">
+                                        Start Quiz (${cat.questions.length} Questions) <i class="ph-bold ph-arrow-right ml-2"></i>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="mt-8 text-center">
+                             <button onclick="app.navigate('past')" class="text-white hover:text-rose-200 underline">Back to Past Tenses</button>
+                        </div>
+                    </div>
+                 `;
+                 this.container.innerHTML = html;
+            },
+
+            renderPresentPerfectHub() {
+                 let html = `
+                    <div class="fade-in max-w-6xl mx-auto">
+                        <div class="text-center mb-10">
+                            <h1 class="text-4xl font-bold text-white mb-3">Present Perfect Practice</h1>
+                            <p class="text-lg text-blue-100">Practice Simple vs. Continuous forms.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${contentData.presentPerfectPractice.map((cat, idx) => `
+                                <div onclick="app.startSpecificQuiz(${idx}, 'presentPerfectPractice')" class="glass-card cursor-pointer p-8 rounded-2xl border-l-8 border-emerald-500 hover:bg-white/90 transition-all">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">${cat.title}</h3>
+                                    <p class="text-slate-600 mb-4">${cat.desc}</p>
+                                    <div class="flex items-center text-emerald-600 font-bold text-sm">
+                                        Start Quiz (${cat.questions.length} Questions) <i class="ph-bold ph-arrow-right ml-2"></i>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="mt-8 text-center">
+                             <button onclick="app.navigate('perfect')" class="text-white hover:text-emerald-200 underline">Back to Present Perfect</button>
+                        </div>
+                    </div>
+                 `;
+                 this.container.innerHTML = html;
+            },
+
+            renderPastPerfectHub() {
+                // ... (Logic for Past Perfect Hub if needed later)
             },
 
             renderGrammar(type) {
@@ -611,6 +982,12 @@
                     gradientClass = 'from-violet-500 to-fuchsia-600';
                     borderClass = 'border-violet-500';
                 }
+                
+                // Collect practice links
+                const practiceButtons = data.units.filter(u => u.practiceLink).map(u => ({
+                    title: u.title,
+                    link: u.practiceLink
+                }));
                 
                 let html = `
                     <div class="fade-in max-w-5xl mx-auto">
@@ -647,14 +1024,6 @@
                                                 `).join('')}
                                             </div>
                                         ` : ''}
-                                        
-                                        ${unit.practiceLink ? `
-                                            <div class="mb-6">
-                                                 <button onclick="app.navigate('${unit.practiceLink}')" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 flex items-center justify-center gap-2">
-                                                    <i class="ph-bold ph-pencil-simple"></i> Practice ${unit.title} Uses
-                                                 </button>
-                                            </div>
-                                        ` : ''}
 
                                         <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
                                             <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Examples</h4>
@@ -672,11 +1041,40 @@
                             `).join('')}
                         </div>
                         
+                        <!-- Practice Buttons Section (Moved to Bottom) -->
+                        ${practiceButtons.length > 0 ? `
+                            <div class="mt-12 grid grid-cols-1 md:grid-cols-${practiceButtons.length > 1 ? '2' : '1'} gap-6">
+                                ${practiceButtons.map(btn => `
+                                    <button onclick="app.navigate('${btn.link}')" class="bg-white hover:bg-indigo-50 text-slate-800 font-bold py-4 px-6 rounded-2xl shadow-lg transition-all transform hover:scale-105 border-2 border-indigo-100 flex flex-col items-center justify-center gap-2 group">
+                                        <i class="ph-duotone ph-pencil-simple text-3xl text-indigo-600 group-hover:text-indigo-700"></i>
+                                        <span class="text-lg">Practice ${btn.title}</span>
+                                        <span class="text-xs text-slate-500 font-normal">Interactive Exercises</span>
+                                    </button>
+                                `).join('')}
+                            </div>
+                        ` : ''}
+                        
+                        ${type === 'present' ? `
                         <div class="mt-8 text-center">
-                            <button onclick="app.navigate('compare')" class="bg-white text-slate-800 hover:bg-slate-100 px-6 py-3 rounded-full font-bold shadow-lg transition-colors">
-                                Compare These Tenses <i class="ph-bold ph-arrow-right ml-2 inline-block align-middle"></i>
+                            <button onclick="app.navigate('compare')" class="bg-white/10 text-white hover:bg-white/20 px-8 py-3 rounded-full font-bold shadow-lg transition-all backdrop-blur-sm border border-white/20">
+                                <span class="flex items-center gap-3">
+                                    <i class="ph-bold ph-arrows-left-right text-xl"></i>
+                                    Compare Present Simple vs Present Continuous
+                                </span>
                             </button>
                         </div>
+                        ` : ''}
+                        
+                        ${type !== 'present' ? `
+                        <div class="mt-8 text-center">
+                            <button onclick="app.navigate('compare')" class="bg-white/10 text-white hover:bg-white/20 px-8 py-3 rounded-full font-bold shadow-lg transition-all backdrop-blur-sm border border-white/20">
+                                <span class="flex items-center gap-3">
+                                    <i class="ph-bold ph-arrows-left-right text-xl"></i>
+                                    Compare Tenses
+                                </span>
+                            </button>
+                        </div>
+                        ` : ''}
                     </div>
                 `;
                 this.container.innerHTML = html;
