@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenseMaster | English Grammar Course</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        /* Smooth background animations */
+        @keyframes float {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        @keyframes float-reverse {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(-30px, 50px) scale(1.2); }
+            66% { transform: translate(20px, -20px) scale(0.8); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.6;
+            z-index: -1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .blob-2 {
+            animation: float-reverse 25s infinite ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-800 overflow-x-hidden min-h-screen relative selection:bg-fuchsia-300 selection:text-fuchsia-900">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="blob bg-purple-600 w-96 h-96 rounded-full top-0 left-0 mix-blend-multiply opacity-50"></div>
+        <div class="blob-2 bg-pink-500 w-96 h-96 rounded-full bottom-0 right-0 mix-blend-multiply opacity-50"></div>
+        <div class="blob bg-indigo-500 w-80 h-80 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mix-blend-multiply opacity-50"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 left-0 border-b border-white/20 bg-slate-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2 cursor-pointer" onclick="app.navigate('home')">
+                    <i class="ph-fill ph-graduation-cap text-3xl text-fuchsia-400"></i>
+                    <span class="brand-font text-xl font-bold text-white tracking-wide">Tense<span class="text-fuchsia-400">Master</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-2">
+                        <button onclick="app.navigate('home')" class="nav-btn text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</button>
+                        <button onclick="app.navigate('present')" class="nav-btn text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-colors">Present</button>
+                        <button onclick="app.navigate('past')" class="nav-btn text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-colors">Past</button>
+                        <button onclick="app.navigate('perfect')" class="nav-btn text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pres. Perfect</button>
+                        <button onclick="app.navigate('pastPerfect')" class="nav-btn text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-colors">Past Perfect</button>
+                        <button onclick="app.navigate('compare')" class="nav-btn text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-colors">Compare</button>
+                        <button onclick="app.navigate('practice')" class="nav-btn bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg transition-all transform hover:scale-105">Quiz</button>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gray-300 hover:text-white p-2">
+                        <i class="ph ph-list text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="app.navigate('home')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Home</button>
+                <button onclick="app.navigate('present')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Present Tenses</button>
+                <button onclick="app.navigate('past')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Past Tenses</button>
+                <button onclick="app.navigate('perfect')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Present Perfect</button>
+                <button onclick="app.navigate('pastPerfect')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Past Perfect</button>
+                <button onclick="app.navigate('compare')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Compare Uses</button>
+                <button onclick="app.navigate('practice')" class="text-fuchsia-400 font-bold block px-3 py-2 rounded-md text-base w-full text-left">Practice Quiz</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="app-container" class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen flex flex-col">
+        <!-- Content injected here via JS -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/90 backdrop-blur text-gray-400 py-8 border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm">Based on concepts from "English Grammar in Use" (Murphy) & Supplementary Exercises.</p>
+            <p class="text-xs mt-2 opacity-60">Designed for EFL/ESL Students.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // --- Data Source (Based on PDFs & EnglishPage.com) ---
+        const contentData = {
+            home: {
+                title: "Master English Tenses",
+                subtitle: "Interactive grammar guide based on Cambridge Grammar in Use",
+                cards: [
+                    { title: "Present Tenses", desc: "I do vs I am doing", icon: "ph-clock", action: "present", color: "from-blue-400 to-indigo-500" },
+                    { title: "Past Tenses", desc: "I did vs I was doing", icon: "ph-clock-counter-clockwise", action: "past", color: "from-pink-400 to-rose-500" },
+                    { title: "Present Perfect", desc: "I have done / been doing", icon: "ph-check-square-offset", action: "perfect", color: "from-emerald-400 to-teal-500" },
+                    { title: "Past Perfect", desc: "I had done / been doing", icon: "ph-arrow-u-up-left", action: "pastPerfect", color: "from-violet-400 to-fuchsia-500" },
+                    { title: "Compare Uses", desc: "Understand the differences", icon: "ph-arrows-left-right", action: "compare", color: "from-amber-400 to-orange-500" },
+                    { title: "Interactive Quiz", desc: "Test your knowledge", icon: "ph-pencil-circle", action: "practice", color: "from-fuchsia-500 to-purple-600" }
+                ]
+            },
+            present: {
+                title: "Present Tenses",
+                intro: "Learn when to use the Simple Present and Present Continuous.",
+                units: [
+                    {
+                        title: "Present Simple",
+                        subtitle: "I do",
+                        formula: "Subject + verb (s/es)",
+                        explanation: "Use this for things that are true in general, or for things that happen repeatedly (habits).",
+                        practiceLink: "present_simple_hub", // Triggers the 'Practice' button
+                        detailedUses: [
+                            { title: "1. Repeated Actions", desc: "Habits, hobbies, daily events, or scheduled events. (e.g., 'I play tennis', 'The train leaves at 8 AM')." },
+                            { title: "2. Facts or Generalizations", desc: "General truths about people or things. (e.g., 'Cats like milk', 'Windows are made of glass')." },
+                            { title: "3. Scheduled Events (Near Future)", desc: "Often used for public transportation or fixed schedules. (e.g., 'The party starts at 8 o'clock')." },
+                            { title: "4. Now (Non-Continuous Verbs)", desc: "For verbs not used in continuous forms (like 'need', 'want', 'know'). (e.g., 'He needs help right now')." }
+                        ],
+                        examples: [
+                            "Nurses <b>look</b> after patients in hospitals.",
+                            "I usually <b>go</b> away at weekends.",
+                            "The cafe <b>opens</b> at 7:30 in the morning."
+                        ],
+                        icon: "ph-repeat"
+                    },
+                    {
+                        title: "Present Continuous",
+                        subtitle: "I am doing",
+                        formula: "Subject + am/is/are + verb-ing",
+                        explanation: "Use this for an action happening <b>now</b> (at the time of speaking) or around now. The action is not finished.",
+                        detailedUses: [
+                            { title: "1. Now", desc: "Something is happening at this very moment. (e.g., 'You are learning English now')." },
+                            { title: "2. Longer Actions in Progress", desc: "An action in progress this week, month, or year, but not necessarily right this second. (e.g., 'I am studying to become a doctor')." },
+                            { title: "3. Near Future", desc: "Indicates that something will or will not happen in the near future. (e.g., 'I am meeting some friends after work')." },
+                            { title: "4. Repetition with 'Always'", desc: "Expresses the idea that something irritating or shocking often happens. (e.g., 'She is always coming to class late')." }
+                        ],
+                        examples: [
+                            "Sarah is in her car. She <b>is driving</b> to work.",
+                            "Please don't make noise. I <b>am trying</b> to work.",
+                            "Look! It <b>is raining</b>."
+                        ],
+                        icon: "ph-spinner"
+                    }
+                ]
+            },
+            presentSimplePractice: [
+                {
+                    id: 'habits',
+                    title: "Habits & Repeated Actions",
+                    desc: "Daily routines, hobbies, and things you do often.",
+                    questions: [
+                        { q: "I usually ______ (go) away at weekends.", options: ["go", "goes", "going"], correct: 0, feedback: "Correct! 'Usually' indicates a habit." },
+                        { q: "On weekdays, I ______ (catch) the bus.", options: ["catches", "catch", "catching"], correct: 1, feedback: "Correct! 'I' takes the base form." },
+                        { q: "He ______ (play) tennis every Friday.", options: ["play", "playing", "plays"], correct: 2, feedback: "Correct! Third person singular (He) adds 's'." },
+                        { q: "They often ______ (visit) their grandparents.", options: ["visit", "visits", "visiting"], correct: 0, feedback: "Correct! 'Often' signals a repeated action." },
+                        { q: "She never ______ (forget) her purse.", options: ["forget", "forgets", "forgot"], correct: 1, feedback: "Correct! 'Never' is an adverb of frequency used with habits." },
+                        { q: "We ______ (watch) TV in the evening.", options: ["watch", "watches", "watching"], correct: 0, feedback: "Correct! 'We' takes the base form." },
+                        { q: "My brother ______ (live) in London.", options: ["live", "lives", "living"], correct: 1, feedback: "Correct! A permanent situation/habit." },
+                        { q: "Tom ______ (have) a shower every morning.", options: ["haves", "has", "have"], correct: 1, feedback: "Correct! 'Has' is the 3rd person form of 'have'." },
+                        { q: "I ______ (work) in a bank.", options: ["works", "working", "work"], correct: 2, feedback: "Correct! A general habit/fact about your life." },
+                        { q: "Sarah ______ (drive) to work every day.", options: ["drive", "drives", "is driving"], correct: 1, feedback: "Correct! 'Every day' implies a habit." }
+                    ]
+                },
+                {
+                    id: 'facts',
+                    title: "Facts & General Truths",
+                    desc: "Things that are always true or true in general.",
+                    questions: [
+                        { q: "The earth ______ (go) round the sun.", options: ["goes", "go", "going"], correct: 0, feedback: "Correct! Scientific fact." },
+                        { q: "Nurses ______ (look) after patients in hospitals.", options: ["looks", "look", "looking"], correct: 1, feedback: "Correct! General truth about nurses." },
+                        { q: "Cats ______ (like) milk.", options: ["like", "likes", "liking"], correct: 0, feedback: "Correct! General truth about cats." },
+                        { q: "Water ______ (boil) at 100 degrees Celsius.", options: ["boils", "boil", "boiled"], correct: 0, feedback: "Correct! Physical fact." },
+                        { q: "It ______ (rain) a lot in winter here.", options: ["rain", "rains", "raining"], correct: 1, feedback: "Correct! General weather fact." },
+                        { q: "Birds ______ (not / like) milk.", options: ["not like", "doesn't like", "do not like"], correct: 2, feedback: "Correct! Negative fact." },
+                        { q: "Canada ______ (share) a border with the USA.", options: ["shares", "share", "sharing"], correct: 0, feedback: "Correct! Geographic fact." },
+                        { q: "Windows ______ (be) made of glass.", options: ["is", "are", "be"], correct: 1, feedback: "Correct! General truth." },
+                        { q: "The sun ______ (rise) in the East.", options: ["rise", "rises", "rising"], correct: 1, feedback: "Correct! Universal truth." },
+                        { q: "Vegetarians ______ (not / eat) meat.", options: ["don't eat", "doesn't eat", "not eat"], correct: 0, feedback: "Correct! General definition." }
+                    ]
+                },
+                {
+                    id: 'schedules',
+                    title: "Schedules & Timetables",
+                    desc: "Future events based on a timetable.",
+                    questions: [
+                        { q: "My university term ______ (start) in Autumn.", options: ["start", "starts", "starting"], correct: 1, feedback: "Correct! A fixed schedule." },
+                        { q: "The train ______ (leave) at 11:30.", options: ["leave", "leaves", "leaving"], correct: 1, feedback: "Correct! Train timetable." },
+                        { q: "What time ______ (do) the film begin?", options: ["do", "does", "is"], correct: 1, feedback: "Correct! Question about a schedule." },
+                        { q: "The plane ______ (arrive) tonight at 9 PM.", options: ["arrive", "arrives", "arriving"], correct: 1, feedback: "Correct! Flight schedule." },
+                        { q: "The concert ______ (finish) at 10:30.", options: ["finishes", "finish", "finished"], correct: 0, feedback: "Correct! Fixed event time." },
+                        { q: "School ______ (begin) next week.", options: ["begins", "begin", "beginning"], correct: 0, feedback: "Correct! School calendar." },
+                        { q: "The exhibition ______ (open) on the 18th.", options: ["open", "opens", "opening"], correct: 1, feedback: "Correct! Scheduled opening." },
+                        { q: "When ______ (do) the bus arrive?", options: ["do", "does", "is"], correct: 1, feedback: "Correct! Bus timetable." },
+                        { q: "Our flight ______ (take) off at 7 AM tomorrow.", options: ["takes", "take", "taking"], correct: 0, feedback: "Correct! Flight schedule." },
+                        { q: "The football match ______ (start) at 3 PM.", options: ["start", "starts", "starting"], correct: 1, feedback: "Correct! Sports schedule." }
+                    ]
+                },
+                {
+                    id: 'states',
+                    title: "Non-Continuous (State) Verbs",
+                    desc: "Verbs about thoughts, feelings, and possession.",
+                    questions: [
+                        { q: "I ______ (understand) the problem now.", options: ["understand", "am understanding", "understands"], correct: 0, feedback: "Correct! 'Understand' is a state verb." },
+                        { q: "She ______ (want) a new car.", options: ["wants", "is wanting", "want"], correct: 0, feedback: "Correct! 'Want' describes a state/desire." },
+                        { q: "Do you ______ (know) the answer?", options: ["know", "knowing", "knows"], correct: 0, feedback: "Correct! 'Know' is a mental state." },
+                        { q: "This soup ______ (taste) delicious.", options: ["tastes", "is tasting", "taste"], correct: 0, feedback: "Correct! Describes the state of the soup." },
+                        { q: "I ______ (think) he is right.", options: ["think", "am thinking", "thinks"], correct: 0, feedback: "Correct! Opinion = Simple Tense." },
+                        { q: "He ______ (need) help with his homework.", options: ["needs", "is needing", "need"], correct: 0, feedback: "Correct! 'Need' is a state verb." },
+                        { q: "I ______ (remember) his face.", options: ["remember", "am remembering", "remembers"], correct: 0, feedback: "Correct! Mental process." },
+                        { q: "They ______ (own) a farm.", options: ["own", "are owning", "owns"], correct: 0, feedback: "Correct! Possession." },
+                        { q: "I ______ (like) this song.", options: ["like", "am liking", "likes"], correct: 0, feedback: "Correct! Preference." },
+                        { q: "It ______ (seem) expensive.", options: ["seems", "is seeming", "seem"], correct: 0, feedback: "Correct! Appearance/State." }
+                    ]
+                }
+            ],
+            past: {
+                title: "Past Tenses",
+                intro: "Distinguishing between finished actions and actions in progress in the past.",
+                units: [
+                    {
+                        title: "Past Simple",
+                        subtitle: "I did",
+                        formula: "Subject + verb-ed (or irregular)",
+                        explanation: "Use this for finished actions in the past. We often say <i>when</i> it happened.",
+                        detailedUses: [
+                            { title: "1. Completed Action in the Past", desc: "An action started and finished at a specific time in the past. (e.g., 'I saw a movie yesterday')." },
+                            { title: "2. A Series of Completed Actions", desc: "A list of completed actions that happened 1st, 2nd, 3rd, etc. (e.g., 'I finished work, walked to the beach, and found a nice place to swim')." },
+                            { title: "3. Duration in the Past", desc: "An action that starts and stops in the past, often with expressions like 'for two years'. (e.g., 'I lived in Brazil for two years')." },
+                            { title: "4. Habits in the Past", desc: "Habits which stopped in the past. Similar meaning to 'used to'. (e.g., 'I studied French when I was a child')." }
+                        ],
+                        examples: [
+                            "I <b>woke</b> up at 6:00 yesterday.",
+                            "We <b>played</b> tennis yesterday afternoon.",
+                            "He <b>didn't</b> go to work last week."
+                        ],
+                        icon: "ph-check-circle"
+                    },
+                    {
+                        title: "Past Continuous",
+                        subtitle: "I was doing",
+                        formula: "Subject + was/were + verb-ing",
+                        explanation: "Use this when you were in the middle of doing something at a certain time in the past.",
+                        detailedUses: [
+                            { title: "1. Interrupted Action in the Past", desc: "A longer action in the past was interrupted by a shorter action. (e.g., 'I was watching TV when she called')." },
+                            { title: "2. Specific Time as an Interruption", desc: "Last night at 6 PM, I was eating dinner. (I started earlier and was in the process of eating at 6 PM)." },
+                            { title: "3. Parallel Actions", desc: "Two actions happening at the same time. (e.g., 'I was studying while he was making dinner')." },
+                            { title: "4. Atmosphere", desc: "Using parallel actions to describe the atmosphere. (e.g., 'People were typing, phones were ringing...')." },
+                            { title: "5. Repetition with 'Always'", desc: "Irritating or shocking habits in the past. (e.g., 'She was always coming to class late')." }
+                        ],
+                        examples: [
+                            "This time last year I <b>was living</b> in Brazil.",
+                            "What <b>were</b> you <b>doing</b> at 10 o'clock last night?",
+                            "It <b>was raining</b> when we went out."
+                        ],
+                        icon: "ph-film-strip"
+                    }
+                ]
+            },
+            perfect: {
+                title: "Present Perfect Tenses",
+                intro: "Linking the past with the present. Covering both Simple and Continuous forms.",
+                units: [
+                    {
+                        title: "Present Perfect Simple",
+                        subtitle: "I have done",
+                        formula: "Subject + have/has + past participle (v3)",
+                        explanation: "The action is in the past, but the result is in the present. It describes an action at an <b>unspecified time</b> before now.",
+                        detailedUses: [
+                            { title: "1. Result in the Present", desc: "Something happened in the past and has a result now. (e.g., 'I've lost my keys' = I don't have them now)." },
+                            { title: "2. Life Experience", desc: "Talking about your life up to now. The exact time is not important. (e.g., 'I have been to France' or 'I have never seen that movie')." },
+                            { title: "3. Change Over Time", desc: "Describing a change that has happened over a period of time. (e.g., 'You have grown since the last time I saw you' or 'My English has improved')." },
+                            { title: "4. Accomplishments", desc: "Listing accomplishments of individuals or humanity without a specific time. (e.g., 'Man has walked on the Moon' or 'Doctors have cured many diseases')." },
+                            { title: "5. Duration (Non-Continuous)", desc: "With non-continuous verbs (like have, know, be), it shows something started in the past and continues to now. (e.g., 'I have had a cold for two weeks')." },
+                            { title: "6. Uncompleted Expectation", desc: "An action we expected has not happened yet. (e.g., 'The rain hasn't stopped' or 'James has not finished his homework')." }
+                        ],
+                        examples: [
+                            "I <b>have lost</b> my key. (I don't have it now)",
+                            "<b>Have</b> you <b>seen</b> Tom? (Where is he now?)",
+                            "My English <b>has really improved</b> since I moved to Australia.",
+                            "I <b>have had</b> this car for five years."
+                        ],
+                        icon: "ph-check-square-offset"
+                    },
+                    {
+                        title: "Present Perfect Continuous",
+                        subtitle: "I have been doing",
+                        formula: "Subject + have/has + been + verb-ing",
+                        explanation: "Use this for an activity that started in the past and has continued up to now, often emphasizing duration or recent activity.",
+                        detailedUses: [
+                            { title: "1. Duration from Past Until Now", desc: "Something started in the past and continues to now. Used with 'for' or 'since'. (e.g., 'They have been talking for the last hour')." },
+                            { title: "2. Recently / Lately", desc: "Used without a specific duration to mean 'lately'. Emphasizes recent behavior. (e.g., 'Recently, I have been feeling really tired')." },
+                            { title: "3. Activity Recently Stopped (Evidence)", desc: "The activity stopped, but you can see, smell, or feel the result. (e.g., 'Have you been smoking? I smell smoke.' or 'Have you been crying? Your eyes are red.')." },
+                            { title: "4. Important: Non-Continuous Verbs", desc: "Do NOT use this tense with non-continuous verbs (like have, know, be). Use Present Perfect Simple instead. (e.g., CORRECT: 'I have had my car for two years' vs INCORRECT: 'I have been having...')." },
+                            { title: "5. Adverb Placement", desc: "Adverbs like 'always', 'only', 'never', 'still', 'just' are placed between 'have' and 'been'. (e.g., 'You have ONLY been waiting for one hour')." }
+                        ],
+                        examples: [
+                            "It <b>has been raining</b> for two hours.",
+                            "She <b>has been working</b> at that company for three years.",
+                            "<b>Have</b> you <b>been exercising</b> lately?",
+                            "I <b>have been working</b> hard all day. I'm tired."
+                        ],
+                        icon: "ph-timer"
+                    }
+                ]
+            },
+            pastPerfect: {
+                title: "Past Perfect Tenses",
+                intro: "Going back to a time before the past. Covering Simple and Continuous forms.",
+                units: [
+                    {
+                        title: "Past Perfect Simple",
+                        subtitle: "I had done",
+                        formula: "Subject + had + past participle (v3)",
+                        explanation: "We use the Past Perfect to indicate that an action happened <b>before</b> another action in the past. It clarifies the timeline of events.",
+                        detailedUses: [
+                            { title: "1. Action Before Another Past Action", desc: "Something occurred before another action in the past. (e.g., 'I had never seen such a beautiful beach before I went to Kauai')." },
+                            { title: "2. Duration Before Past Event", desc: "With non-continuous verbs, shows something started in the past and continued until another past action. (e.g., 'We had had that car for ten years before it broke down')." },
+                            { title: "3. Specific Times Allowed", desc: "Unlike Present Perfect, you CAN use specific times to clarify order. (e.g., 'She had visited once in 1993 before she moved')." },
+                            { title: "4. Clarifying Meaning", desc: "Compare: 'When I arrived, he left' (Sequence) vs 'When I arrived, he had left' (He was already gone)." },
+                            { title: "5. Reported Speech", desc: "Present Perfect/Past Simple becomes Past Perfect in reported speech. (e.g., 'I have lost my key' -> He said he had lost his key)." }
+                        ],
+                        examples: [
+                            "When Sarah arrived at the party, Paul <b>had</b> already <b>gone</b> home.",
+                            "We <b>had had</b> that car for ten years before it broke down.",
+                            "The house was dirty. They <b>hadn't cleaned</b> it for weeks."
+                        ],
+                        icon: "ph-arrow-u-up-left"
+                    },
+                    {
+                        title: "Past Perfect Continuous",
+                        subtitle: "I had been doing",
+                        formula: "Subject + had + been + verb-ing",
+                        explanation: "Use this to describe an action that had been happening for a period of time before another action in the past.",
+                        detailedUses: [
+                            { title: "1. Duration Before Past Event", desc: "Something started in the past and continued up to another past time. (e.g., 'We had been playing tennis for 30 minutes when it started to rain')." },
+                            { title: "2. Cause of a Past State", desc: "Explaining why a past condition existed. (e.g., 'He was tired because he had been working hard')." },
+                            { title: "3. VS Past Continuous", desc: "Past Continuous (at the time): 'He was running'. Past Perfect Continuous (finished/result): 'He had been running'." }
+                        ],
+                        examples: [
+                            "I was very tired when I arrived home. I <b>had been working</b> hard all day.",
+                            "The game was stopped because it <b>had been raining</b> heavily.",
+                            "Ken gave up smoking two years ago. He <b>had been smoking</b> for 30 years."
+                        ],
+                        icon: "ph-timer"
+                    }
+                ]
+            },
+            compare: {
+                title: "Comparing Tenses",
+                scenarios: [
+                    {
+                        topic: "Action vs. Structure",
+                        leftTitle: "Present Continuous (I am doing)",
+                        rightTitle: "Present Simple (I do)",
+                        comparisonPoints: [
+                            { left: "Happening <b>now</b>.", right: "Happens <b>all the time</b> or usually." },
+                            { left: "I'm working. (Don't disturb me)", right: "I work from 9 to 5. (General fact)" },
+                            { left: "It's raining outside.", right: "It rains a lot in winter." }
+                        ]
+                    },
+                    {
+                        topic: "Interrupted Actions",
+                        leftTitle: "Past Continuous (I was doing)",
+                        rightTitle: "Past Simple (I did)",
+                        comparisonPoints: [
+                            { left: "In the middle of an action.", right: "A complete action." },
+                            { left: "We were having dinner...", right: "...when the phone rang." },
+                            { left: "I was walking home...", right: "...when I met Dave." }
+                        ]
+                    }
+                ]
+            },
+            quiz: [
+                {
+                    q: "Look! That man ______ to open the door of your car.",
+                    options: ["tries", "is trying", "tried"],
+                    correct: 1, // Index of correct option
+                    feedback: "Correct! We use Present Continuous for actions happening right now (Look!)."
+                },
+                {
+                    q: "Can you hear those people? What ______ about?",
+                    options: ["do they talk", "are they talking", "talk they"],
+                    correct: 1,
+                    feedback: "Correct! The action is happening now, so we use Present Continuous."
+                },
+                {
+                    q: "The moon ______ round the earth in about 27 days.",
+                    options: ["goes", "is going", "went"],
+                    correct: 0,
+                    feedback: "Correct! This is a general truth/scientific fact, so we use Present Simple."
+                },
+                {
+                    q: "I ______ (see) Josh yesterday evening.",
+                    options: ["was seeing", "saw", "seen"],
+                    correct: 1,
+                    feedback: "Correct! 'Yesterday evening' indicates a finished time in the past."
+                },
+                {
+                    q: "I ______ (walk) along the road when I saw Dave.",
+                    options: ["walked", "was walking", "am walking"],
+                    correct: 1,
+                    feedback: "Correct! You were in the middle of the action when something else happened."
+                },
+                {
+                    q: "From the PDF Letter: 'I ______ (have) a great time here in England.'",
+                    options: ["have", "am having", "had"],
+                    correct: 1,
+                    feedback: "Correct! This is happening around the present time (temporary situation)."
+                }
+            ]
+        };
+
+        // --- Application Logic ---
+
+        const app = {
+            container: document.getElementById('app-container'),
+            currentQuizIndex: 0,
+            score: 0,
+            currentQuizData: [], // Stores the active quiz questions
+
+            init() {
+                this.navigate('home');
+            },
+
+            navigate(view) {
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                // Render view
+                this.container.innerHTML = '';
+                window.scrollTo(0, 0);
+
+                switch(view) {
+                    case 'home': this.renderHome(); break;
+                    case 'present': this.renderGrammar('present'); break;
+                    case 'present_simple_hub': this.renderPresentSimpleHub(); break;
+                    case 'past': this.renderGrammar('past'); break;
+                    case 'perfect': this.renderGrammar('perfect'); break;
+                    case 'pastPerfect': this.renderGrammar('pastPerfect'); break;
+                    case 'compare': this.renderCompare(); break;
+                    case 'practice': this.startGeneralQuiz(); break;
+                }
+            },
+
+            startGeneralQuiz() {
+                this.currentQuizData = contentData.quiz;
+                this.renderPractice();
+            },
+            
+            startSpecificQuiz(categoryIndex) {
+                 this.currentQuizData = contentData.presentSimplePractice[categoryIndex].questions;
+                 this.renderPractice();
+            },
+
+            renderHome() {
+                const data = contentData.home;
+                let html = `
+                    <div class="text-center py-12 fade-in">
+                        <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-sm tracking-tight">${data.title}</h1>
+                        <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-12 font-light">${data.subtitle}</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${data.cards.map(card => `
+                                <div onclick="app.navigate('${card.action}')" class="glass-card cursor-pointer p-6 rounded-2xl border-t-4 border-transparent hover:border-white group relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-br ${card.color} opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                                    <div class="relative z-10 flex flex-col items-center">
+                                        <div class="w-16 h-16 rounded-full bg-gradient-to-br ${card.color} flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                                            <i class="ph-fill ${card.icon} text-3xl"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-slate-800 mb-2">${card.title}</h3>
+                                        <p class="text-sm text-slate-600">${card.desc}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+
+                        <div class="mt-16 glass-panel p-8 rounded-3xl max-w-4xl mx-auto text-left">
+                            <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                <i class="ph-duotone ph-book-open-text text-indigo-600"></i> Course Overview
+                            </h2>
+                            <p class="text-slate-600 mb-4 leading-relaxed">
+                                This interactive guide is designed to help you master the nuances of English verb tenses. 
+                                Based on standard EFL curriculums, we focus on the differences between 
+                                <strong>Simple</strong> and <strong>Continuous</strong> forms.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-semibold">Unit 1: Present Continuous</span>
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-semibold">Unit 2: Present Simple</span>
+                                <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-semibold">Unit 5: Past Simple</span>
+                                <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-semibold">Unit 6: Past Continuous</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                this.container.innerHTML = html;
+            },
+            
+            renderPresentSimpleHub() {
+                 let html = `
+                    <div class="fade-in max-w-6xl mx-auto">
+                        <div class="text-center mb-10">
+                            <h1 class="text-4xl font-bold text-white mb-3">Present Simple Practice</h1>
+                            <p class="text-lg text-blue-100">Select a specific use to practice.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${contentData.presentSimplePractice.map((cat, idx) => `
+                                <div onclick="app.startSpecificQuiz(${idx})" class="glass-card cursor-pointer p-8 rounded-2xl border-l-8 border-indigo-500 hover:bg-white/90 transition-all">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">${cat.title}</h3>
+                                    <p class="text-slate-600 mb-4">${cat.desc}</p>
+                                    <div class="flex items-center text-indigo-600 font-bold text-sm">
+                                        Start Quiz (${cat.questions.length} Questions) <i class="ph-bold ph-arrow-right ml-2"></i>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="mt-8 text-center">
+                             <button onclick="app.navigate('present')" class="text-white hover:text-indigo-200 underline">Back to Present Tenses</button>
+                        </div>
+                    </div>
+                 `;
+                 this.container.innerHTML = html;
+            },
+
+            renderGrammar(type) {
+                const data = contentData[type];
+                // Determine theme color based on type
+                let themeColor = 'indigo';
+                let gradientClass = 'from-indigo-600 to-blue-600';
+                let borderClass = 'border-indigo-500';
+                
+                if (type === 'past') {
+                    themeColor = 'pink';
+                    gradientClass = 'from-pink-600 to-rose-600';
+                    borderClass = 'border-pink-500';
+                } else if (type === 'perfect') {
+                    themeColor = 'emerald';
+                    gradientClass = 'from-emerald-500 to-teal-600';
+                    borderClass = 'border-emerald-500';
+                } else if (type === 'pastPerfect') {
+                    themeColor = 'violet';
+                    gradientClass = 'from-violet-500 to-fuchsia-600';
+                    borderClass = 'border-violet-500';
+                }
+                
+                let html = `
+                    <div class="fade-in max-w-5xl mx-auto">
+                        <div class="text-center mb-10">
+                            <h1 class="text-4xl font-bold text-white mb-3">${data.title}</h1>
+                            <p class="text-lg text-blue-100">${data.intro}</p>
+                        </div>
+
+                        <div class="space-y-8">
+                            ${data.units.map(unit => `
+                                <div class="glass-panel p-0 rounded-3xl overflow-hidden shadow-xl">
+                                    <div class="bg-gradient-to-r ${gradientClass} p-6 flex items-center justify-between">
+                                        <div>
+                                            <h2 class="text-2xl font-bold text-white">${unit.title}</h2>
+                                            <p class="text-white/80 font-mono text-sm mt-1">${unit.subtitle}</p>
+                                        </div>
+                                        <i class="ph ${unit.icon} text-4xl text-white/50"></i>
+                                    </div>
+                                    <div class="p-6 md:p-8 bg-white/95">
+                                        <div class="mb-6">
+                                            <div class="inline-block px-4 py-2 bg-slate-100 rounded-lg text-slate-700 font-mono text-sm font-semibold border-l-4 ${borderClass}">
+                                                ${unit.formula}
+                                            </div>
+                                        </div>
+                                        <p class="text-slate-700 text-lg mb-6 leading-relaxed">${unit.explanation}</p>
+                                        
+                                        ${unit.detailedUses ? `
+                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                                                ${unit.detailedUses.map(use => `
+                                                    <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
+                                                        <span class="block text-indigo-700 font-bold text-sm mb-1">${use.title}</span>
+                                                        <span class="text-slate-600 text-sm leading-snug block">${use.desc}</span>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        ` : ''}
+                                        
+                                        ${unit.practiceLink ? `
+                                            <div class="mb-6">
+                                                 <button onclick="app.navigate('${unit.practiceLink}')" class="w-full md:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl shadow-md transition-transform transform hover:scale-105 flex items-center justify-center gap-2">
+                                                    <i class="ph-bold ph-pencil-simple"></i> Practice ${unit.title} Uses
+                                                 </button>
+                                            </div>
+                                        ` : ''}
+
+                                        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200">
+                                            <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">Examples</h4>
+                                            <ul class="space-y-3">
+                                                ${unit.examples.map(ex => `
+                                                    <li class="flex items-start gap-3 text-slate-700">
+                                                        <i class="ph-fill ph-check-circle text-emerald-500 mt-1"></i>
+                                                        <span>${ex}</span>
+                                                    </li>
+                                                `).join('')}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="mt-8 text-center">
+                            <button onclick="app.navigate('compare')" class="bg-white text-slate-800 hover:bg-slate-100 px-6 py-3 rounded-full font-bold shadow-lg transition-colors">
+                                Compare These Tenses <i class="ph-bold ph-arrow-right ml-2 inline-block align-middle"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                this.container.innerHTML = html;
+            },
+
+            renderCompare() {
+                const data = contentData.compare;
+                let html = `
+                    <div class="fade-in max-w-6xl mx-auto">
+                        <div class="text-center mb-10">
+                            <h1 class="text-4xl font-bold text-white mb-3">${data.title}</h1>
+                            <p class="text-lg text-blue-100">See the difference side-by-side.</p>
+                        </div>
+
+                        <div class="space-y-12">
+                            ${data.scenarios.map(scene => `
+                                <div class="glass-panel p-6 md:p-8 rounded-3xl">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-6 text-center border-b pb-4 border-slate-200">${scene.topic}</h3>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 relative">
+                                        <!-- Vertical divider for desktop -->
+                                        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 -ml-px"></div>
+
+                                        <!-- Left Side -->
+                                        <div>
+                                            <h4 class="text-lg font-bold text-indigo-600 mb-4 bg-indigo-50 inline-block px-3 py-1 rounded-lg">${scene.leftTitle}</h4>
+                                            <div class="space-y-4">
+                                                ${scene.comparisonPoints.map(point => `
+                                                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm h-full">
+                                                        <p class="text-slate-700">${point.left}</p>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+
+                                        <!-- Right Side -->
+                                        <div>
+                                            <h4 class="text-lg font-bold text-pink-600 mb-4 bg-pink-50 inline-block px-3 py-1 rounded-lg">${scene.rightTitle}</h4>
+                                            <div class="space-y-4">
+                                                ${scene.comparisonPoints.map(point => `
+                                                    <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm h-full">
+                                                        <p class="text-slate-700">${point.right}</p>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                this.container.innerHTML = html;
+            },
+
+            renderPractice() {
+                this.currentQuizIndex = 0;
+                this.score = 0;
+                this.renderQuizQuestion();
+            },
+
+            renderQuizQuestion() {
+                const q = this.currentQuizData[this.currentQuizIndex];
+                const total = this.currentQuizData.length;
+                
+                let html = `
+                    <div class="fade-in max-w-2xl mx-auto w-full">
+                        <div class="glass-panel p-8 rounded-3xl shadow-2xl bg-white/95">
+                            <div class="flex justify-between items-center mb-6">
+                                <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">Question ${this.currentQuizIndex + 1}/${total}</span>
+                                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold">Score: ${this.score}</span>
+                            </div>
+
+                            <div class="mb-8">
+                                <h3 class="text-xl md:text-2xl font-medium text-slate-800 leading-normal">${q.q}</h3>
+                            </div>
+
+                            <div class="grid gap-3 mb-6" id="options-container">
+                                ${q.options.map((opt, idx) => `
+                                    <button onclick="app.checkAnswer(${idx})" class="w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all text-slate-700 font-medium option-btn" data-index="${idx}">
+                                        ${opt}
+                                    </button>
+                                `).join('')}
+                            </div>
+
+                            <div id="feedback-area" class="hidden rounded-xl p-4 mb-4">
+                                <p id="feedback-text" class="text-sm font-semibold"></p>
+                            </div>
+
+                            <div class="flex justify-end mt-4">
+                                <button id="next-btn" onclick="app.nextQuestion()" class="hidden bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg font-bold transition-colors">
+                                    ${this.currentQuizIndex === total - 1 ? 'Finish Quiz' : 'Next Question'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                this.container.innerHTML = html;
+            },
+
+            checkAnswer(selectedIndex) {
+                const q = this.currentQuizData[this.currentQuizIndex];
+                const buttons = document.querySelectorAll('.option-btn');
+                const feedbackArea = document.getElementById('feedback-area');
+                const feedbackText = document.getElementById('feedback-text');
+                const nextBtn = document.getElementById('next-btn');
+
+                // Disable all buttons
+                buttons.forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.add('opacity-50', 'cursor-not-allowed');
+                });
+
+                if (selectedIndex === q.correct) {
+                    // Correct
+                    buttons[selectedIndex].classList.remove('border-slate-200', 'opacity-50');
+                    buttons[selectedIndex].classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
+                    
+                    feedbackArea.classList.remove('hidden');
+                    feedbackArea.classList.add('bg-emerald-100', 'text-emerald-800');
+                    feedbackText.innerHTML = `<i class="ph-bold ph-check"></i> ${q.feedback}`;
+                    this.score++;
+                } else {
+                    // Incorrect
+                    buttons[selectedIndex].classList.remove('border-slate-200', 'opacity-50');
+                    buttons[selectedIndex].classList.add('border-red-500', 'bg-red-50', 'text-red-700');
+                    
+                    // Highlight correct one
+                    buttons[q.correct].classList.remove('border-slate-200', 'opacity-50');
+                    buttons[q.correct].classList.add('border-emerald-500', 'bg-emerald-50', 'text-emerald-700');
+
+                    feedbackArea.classList.remove('hidden');
+                    feedbackArea.classList.add('bg-red-100', 'text-red-800');
+                    feedbackText.innerHTML = `<i class="ph-bold ph-x"></i> Incorrect. The correct answer was <b>${q.options[q.correct]}</b>.`;
+                }
+
+                nextBtn.classList.remove('hidden');
+            },
+
+            nextQuestion() {
+                if (this.currentQuizIndex < this.currentQuizData.length - 1) {
+                    this.currentQuizIndex++;
+                    this.renderQuizQuestion();
+                } else {
+                    this.renderResults();
+                }
+            },
+
+            renderResults() {
+                const total = this.currentQuizData.length;
+                const percentage = (this.score / total) * 100;
+                let message = "";
+                if (percentage === 100) message = "Perfect Score! You're a grammar wizard! 🧙‍♂️";
+                else if (percentage >= 70) message = "Great job! You have a solid understanding. 👍";
+                else message = "Keep practicing! Review the notes and try again. 💪";
+
+                this.container.innerHTML = `
+                    <div class="fade-in max-w-2xl mx-auto text-center mt-10">
+                        <div class="glass-panel p-10 rounded-3xl">
+                            <div class="w-24 h-24 bg-gradient-to-tr from-fuchsia-500 to-purple-600 rounded-full mx-auto flex items-center justify-center mb-6 shadow-lg">
+                                <i class="ph-fill ph-trophy text-4xl text-white"></i>
+                            </div>
+                            <h2 class="text-3xl font-bold text-slate-800 mb-2">Quiz Complete!</h2>
+                            <p class="text-slate-600 mb-8">${message}</p>
+                            
+                            <div class="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-fuchsia-600 mb-2">
+                                ${this.score} / ${total}
+                            </div>
+                            <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-10">Your Score</p>
+
+                            <div class="flex gap-4 justify-center">
+                                <button onclick="app.navigate('home')" class="px-6 py-3 rounded-xl bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition-colors">
+                                    Home
+                                </button>
+                                <button onclick="app.renderPractice()" class="px-6 py-3 rounded-xl bg-indigo-600 text-white font-bold hover:bg-indigo-700 shadow-lg transition-transform transform hover:scale-105">
+                                    Try Again
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        };
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            app.init();
+        });
+
+    </script>
+</body>
+</html>
