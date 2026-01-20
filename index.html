@@ -631,6 +631,7 @@
                         subtitle: "I had done",
                         formula: "Subject + had + past participle (v3)",
                         explanation: "We use the Past Perfect to indicate that an action happened <b>before</b> another action in the past. It clarifies the timeline of events.",
+                        practiceLink: "past_perfect_hub",
                         detailedUses: [
                             { title: "1. Action Before Another Past Action", desc: "Something occurred before another action in the past. (e.g., 'I had never seen such a beautiful beach before I went to Kauai')." },
                             { title: "2. Duration Before Past Event", desc: "With non-continuous verbs, shows something started in the past and continued until another past action. (e.g., 'We had had that car for ten years before it broke down')." },
@@ -650,6 +651,7 @@
                         subtitle: "I had been doing",
                         formula: "Subject + had + been + verb-ing",
                         explanation: "Use this to describe an action that had been happening for a period of time before another action in the past.",
+                        practiceLink: "past_perfect_hub",
                         detailedUses: [
                             { title: "1. Duration Before Past Event", desc: "Something started in the past and continued up to another past time. (e.g., 'We had been playing tennis for 30 minutes when it started to rain')." },
                             { title: "2. Cause of a Past State", desc: "Explaining why a past condition existed. (e.g., 'He was tired because he had been working hard')." },
@@ -664,6 +666,42 @@
                     }
                 ]
             },
+            pastPerfectPractice: [
+                {
+                    id: 'simple',
+                    title: "Past Perfect Simple",
+                    desc: "Actions completed before another past time.",
+                    questions: [
+                        { q: "When I arrived at the party, Paul ______ (already / go) home.", options: ["already went", "had already gone", "has already gone"], correct: 1, feedback: "Correct! Happened before I arrived." },
+                        { q: "We weren't hungry. We ______ (just / have) lunch.", options: ["just had", "had just had", "have just had"], correct: 1, feedback: "Correct! Action completed before past state (not hungry)." },
+                        { q: "The house was quiet. Everybody ______ (go) to bed.", options: ["went", "had gone", "was going"], correct: 1, feedback: "Correct! Completed before the past time (was quiet)." },
+                        { q: "I didn't recognize him. He ______ (change) a lot.", options: ["changed", "had changed", "has changed"], correct: 1, feedback: "Correct! Change happened before I saw him." },
+                        { q: "The car broke down because I ______ (forget) to put oil in it.", options: ["forgot", "had forgotten", "forget"], correct: 1, feedback: "Correct! The forgetting happened before the breakdown." },
+                        { q: "She ______ (never / see) a bear before she moved to Alaska.", options: ["never saw", "had never seen", "never sees"], correct: 1, feedback: "Correct! Experience before a past event." },
+                        { q: "By the time the police arrived, the thief ______ (escape).", options: ["escaped", "had escaped", "escapes"], correct: 1, feedback: "Correct! Escaped before arrival." },
+                        { q: "I realized I ______ (leave) my wallet at home.", options: ["left", "had left", "leave"], correct: 1, feedback: "Correct! Realized later about an earlier action." },
+                        { q: "The film ______ (already / start) when we got to the cinema.", options: ["already started", "had already started", "starts"], correct: 1, feedback: "Correct! Started before we arrived." },
+                        { q: "He told me he ______ (buy) a new computer.", options: ["bought", "had bought", "buys"], correct: 1, feedback: "Correct! Reported speech (bought -> had bought)." }
+                    ]
+                },
+                {
+                    id: 'continuous',
+                    title: "Past Perfect Continuous",
+                    desc: "Duration up to a past moment and causes of past states.",
+                    questions: [
+                        { q: "I was tired. I ______ (work) hard all day.", options: ["was working", "had been working", "worked"], correct: 1, feedback: "Correct! Duration leading up to a past state." },
+                        { q: "Her eyes were red. She ______ (cry).", options: ["was crying", "had been crying", "cried"], correct: 1, feedback: "Correct! Evidence of a recent past activity." },
+                        { q: "We ______ (play) tennis for 30 minutes when it started to rain.", options: ["were playing", "had been playing", "played"], correct: 1, feedback: "Correct! Duration up to the interruption." },
+                        { q: "Ken gave up smoking. He ______ (smoke) for 30 years.", options: ["smoked", "had been smoking", "was smoking"], correct: 1, feedback: "Correct! Duration up to a past point (gave up)." },
+                        { q: "The road was wet. It ______ (rain).", options: ["rained", "had been raining", "was raining"], correct: 1, feedback: "Correct! Cause of the past state." },
+                        { q: "They were angry. They ______ (wait) for over an hour.", options: ["were waiting", "had been waiting", "waited"], correct: 1, feedback: "Correct! Duration causing the feeling." },
+                        { q: "How long ______ (you / learn) English before you moved to London?", options: ["were you learning", "had you been learning", "did you learn"], correct: 1, feedback: "Correct! Duration before a past event." },
+                        { q: "I was out of breath. I ______ (run).", options: ["ran", "had been running", "was running"], correct: 1, feedback: "Correct! Recent activity causing a state." },
+                        { q: "He gained weight because he ______ (eat) too much.", options: ["was eating", "had been eating", "ate"], correct: 1, feedback: "Correct! Repeated action leading to a result." },
+                        { q: "They ______ (drive) all night, so they were exhausted.", options: ["drove", "had been driving", "were driving"], correct: 1, feedback: "Correct! Duration causing exhaustion." }
+                    ]
+                }
+            ],
             compare: {
                 title: "Comparing Tenses",
                 scenarios: [
@@ -770,6 +808,7 @@
                     case 'perfect': this.renderGrammar('perfect'); break;
                     case 'present_perfect_hub': this.renderPresentPerfectHub(); break;
                     case 'pastPerfect': this.renderGrammar('pastPerfect'); break;
+                    case 'past_perfect_hub': this.renderPastPerfectHub(); break;
                     case 'compare': this.renderCompare(); break;
                     case 'practice': this.startGeneralQuiz(); break;
                 }
@@ -969,7 +1008,31 @@
             },
 
             renderPastPerfectHub() {
-                // ... (Logic for Past Perfect Hub if needed later)
+                 let html = `
+                    <div class="fade-in max-w-6xl mx-auto">
+                        <div class="text-center mb-10">
+                            <h1 class="text-4xl font-bold text-white mb-3">Past Perfect Practice</h1>
+                            <p class="text-lg text-blue-100">Practice Simple vs. Continuous forms.</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            ${contentData.pastPerfectPractice.map((cat, idx) => `
+                                <div onclick="app.startSpecificQuiz(${idx}, 'pastPerfectPractice')" class="glass-card cursor-pointer p-8 rounded-2xl border-l-8 border-violet-500 hover:bg-white/90 transition-all">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-2">${cat.title}</h3>
+                                    <p class="text-slate-600 mb-4">${cat.desc}</p>
+                                    <div class="flex items-center text-violet-600 font-bold text-sm">
+                                        Start Quiz (${cat.questions.length} Questions) <i class="ph-bold ph-arrow-right ml-2"></i>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="mt-8 text-center">
+                             <button onclick="app.navigate('pastPerfect')" class="text-white hover:text-violet-200 underline">Back to Past Perfect</button>
+                        </div>
+                    </div>
+                 `;
+                 this.container.innerHTML = html;
             },
 
             renderGrammar(type) {
