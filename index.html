@@ -113,7 +113,6 @@
                         <button onclick="app.navigate('past')" class="nav-btn text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-colors">Past</button>
                         <button onclick="app.navigate('perfect')" class="nav-btn text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pres. Perfect</button>
                         <button onclick="app.navigate('pastPerfect')" class="nav-btn text-gray-300 hover:text-white hover:bg-white/10 px-3 py-2 rounded-md text-sm font-medium transition-colors">Past Perfect</button>
-                        <!-- Removed Compare Button from Nav -->
                         <button onclick="app.navigate('practice')" class="nav-btn bg-gradient-to-r from-fuchsia-600 to-purple-600 hover:from-fuchsia-500 hover:to-purple-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg transition-all transform hover:scale-105">Quiz</button>
                     </div>
                 </div>
@@ -133,7 +132,6 @@
                 <button onclick="app.navigate('past')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Past Tenses</button>
                 <button onclick="app.navigate('perfect')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Present Perfect</button>
                 <button onclick="app.navigate('pastPerfect')" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium w-full text-left">Past Perfect</button>
-                <!-- Removed Compare Button from Mobile Menu -->
                 <button onclick="app.navigate('practice')" class="text-fuchsia-400 font-bold block px-3 py-2 rounded-md text-base w-full text-left">Practice Quiz</button>
             </div>
         </div>
@@ -809,6 +807,23 @@
                                 </div>
                             `).join('')}
                         </div>
+
+                        <div class="mt-16 glass-panel p-8 rounded-3xl max-w-4xl mx-auto text-left">
+                            <h2 class="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                                <i class="ph-duotone ph-book-open-text text-indigo-600"></i> Course Overview
+                            </h2>
+                            <p class="text-slate-600 mb-4 leading-relaxed">
+                                This interactive guide is designed to help you master the nuances of English verb tenses. 
+                                Based on standard EFL curriculums, we focus on the differences between 
+                                <strong>Simple</strong> and <strong>Continuous</strong> forms.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-semibold">Unit 1: Present Continuous</span>
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs font-semibold">Unit 2: Present Simple</span>
+                                <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-semibold">Unit 5: Past Simple</span>
+                                <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-semibold">Unit 6: Past Continuous</span>
+                            </div>
+                        </div>
                     </div>
                 `;
                 this.container.innerHTML = html;
@@ -1094,6 +1109,53 @@
                             <button onclick="app.navigate('home')" class="text-blue-100 hover:text-white flex items-center gap-2 transition-colors">
                                 <i class="ph-bold ph-house"></i> Back to Home
                             </button>
+                        </div>
+                    </div>
+                `;
+                this.container.innerHTML = html;
+            },
+
+            // Removed renderCompare function
+
+            renderPractice() {
+                this.currentQuizIndex = 0;
+                this.score = 0;
+                this.renderQuizQuestion();
+            },
+
+            renderQuizQuestion() {
+                const q = this.currentQuizData[this.currentQuizIndex];
+                const total = this.currentQuizData.length;
+                
+                let html = `
+                    <div class="fade-in max-w-2xl mx-auto w-full">
+                        <div class="glass-panel p-8 rounded-3xl shadow-2xl bg-white/95">
+                            <div class="flex justify-between items-center mb-6">
+                                <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">Question ${this.currentQuizIndex + 1}/${total}</span>
+                                <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold">Score: ${this.score}</span>
+                            </div>
+
+                            <div class="mb-8">
+                                <h3 class="text-xl md:text-2xl font-medium text-slate-800 leading-normal">${q.q}</h3>
+                            </div>
+
+                            <div class="grid gap-3 mb-6" id="options-container">
+                                ${q.options.map((opt, idx) => `
+                                    <button onclick="app.checkAnswer(${idx})" class="w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-400 hover:bg-indigo-50 transition-all text-slate-700 font-medium option-btn" data-index="${idx}">
+                                        ${opt}
+                                    </button>
+                                `).join('')}
+                            </div>
+
+                            <div id="feedback-area" class="hidden rounded-xl p-4 mb-4">
+                                <p id="feedback-text" class="text-sm font-semibold"></p>
+                            </div>
+
+                            <div class="flex justify-end mt-4">
+                                <button id="next-btn" onclick="app.nextQuestion()" class="hidden bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-lg font-bold transition-colors">
+                                    ${this.currentQuizIndex === total - 1 ? 'Finish Quiz' : 'Next Question'}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 `;
